@@ -1,0 +1,23 @@
+<%= stylesheet_link_tag "https://getbootstrap.com/docs/4.0/examples/album/album.css"%>
+<main role="main">
+  <div class="album text-muted">
+    <div class="container">
+
+      <div class="row">
+        <% @movies.each do |movie| %>
+        <div class="card">
+          <img data-src= <%= image_tag movie.image_url %>
+          <p class="card-text"><%= movie.desc %></p>
+          <p><%= link_to 'Show', movie %>
+            <% if current_user.admin? %>
+            <%= link_to 'Edit', edit_movie_path(movie) %>
+            <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </p>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</main>

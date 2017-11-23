@@ -1,0 +1,38 @@
+
+
+      <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+        <h1>유저 관리</h1>
+
+        <h2>Section title</h2>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>E-mail</th>
+                <th>role</th>
+                <th>승급</th>
+                <th>강등</th>
+                <th>삭제</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                  <td><%= user.id %></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.role %></td>
+              <% if user.admin? %>
+                <td></td>
+                <td><%= link_to("[강등]", admin_user_downgrade_path(user.id), method:'put', data: {confirm: '강등 sure?'})%><br /></td>
+              <% else %>
+                <td><%= link_to("[승급]", admin_user_upgrade_path(user.id), method:'put', data: {confirm: '승급 sure?'})%><br /></td>
+                <td></td>
+              <% end %>
+                  <td><%= link_to("[삭제]",  admin_user_path(user.id),  method: "delete", data: {confirm: 'Are you sure?'})%></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </main>

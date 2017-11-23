@@ -1,0 +1,5 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'New Movie', new_movie_path if current_user.admin? %>
+<h1>Listing Movies</h1>
+<%= render "movies/movie_body"%>

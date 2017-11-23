@@ -5,11 +5,12 @@ gem 'devise-i18n'
 gem 'carrierwave'
 gem 'cancancan', '~> 2.0'
 gem 'rails_12factor'
-gem 'pg'
+#gem 'pg'
 gem 'faker'
 gem 'fog-aws'
 gem "mini_magick"
 gem 'aws-sdk-rails'
+gem 'trix'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.9'
